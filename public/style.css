@@ -1,10 +1,15 @@
 /****** Main Styling ******/
+@import url('https://fonts.googleapis.com/css2?family=Jost&family=Nanum+Gothic&family=Nanum+Myeongjo&family=Oranienbaum&family=Vidaloka&display=swap');
 
 body {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Jost', sans-serif;
+	/*font-family: 'Nanum Gothic', sans-serif;
+	font-family: 'Nanum Myeongjo', serif;
+	font-family: 'Oranienbaum', serif;
+	font-family: 'Vidaloka', serif;*/
 	font-size: 16px;
 	color: #222;
-	background-color: #FaFaFa;
+	background-color: #F9F2ED;
 	text-align: center;
 	line-height: 1.4em;
 }
@@ -43,4 +48,12 @@ li {
 
 a {
 	color: #2574A9;
-}
+} 
+
+.material-symbols-outlined {
+	font-variation-settings:
+	'FILL' 0,
+	'wght' 400,
+	'GRAD' 0,
+	'opsz' 48
+  }

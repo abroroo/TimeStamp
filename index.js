@@ -5,6 +5,7 @@
 var express = require('express');
 var app = express();
 
+
 // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 // so that your API is remotely testable by FCC 
 var cors = require('cors');
@@ -20,13 +21,37 @@ app.get("/", function (req, res) {
 
 
 // your first API endpoint... 
-app.get("/api/hello", function (req, res) {
+app.get("/api/hello", (req, res) => {
   res.json({greeting: 'hello API'});
 });
 
 
 
+// whenever there is : it is a url parameter, and we can access it by req.params
+app.get(`/api/:input`, (req, res) => {
+    let input = req.params.input;
+    let unix;
+    let utc;
+
+    if (input.includes('-') && !input.startsWith('-')){
+      unix = new Date(input).getTime();
+      utc = new Date(input).toString();
+    
+    } else {
+      unix = parseInt(input);
+      utc = new Date(unix).toString();
+    }
+   
+    res.send({
+      unix: unix,
+      utc: utc
+    });
+  }
+);
+
+
+
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
+var listener = app.listen(4000, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
