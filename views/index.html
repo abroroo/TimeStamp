@@ -1,55 +1,120 @@
 <!DOCTYPE html>
 
 <html>
-   <head>
-      <title>Timestamp Microservice | freeCodeCamp.org</title>
-      <link rel="shortcut icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon"/>
-      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-      <link href="style.css" rel="stylesheet" type="text/css">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-   </head>
+   
+<head>
+  <title>Timestamp Microservice</title>
+  <link rel="shortcut icon" href="https://cdn.hyperdev.com/us-east-1%3A52a203ff-088b-420f-81be-45bf559d01b1%2Ffavicon.ico"
+    type="image/x-icon" />
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
 
-   <body>
-    
+<body>
+  <div class="container">
+    <h2>API Project: Timestamp Microservice</h2>
+    <h3>User Stories :</h3>
+    <ol class="user-stories">
+
+      <li>The API endpoint is
+        <code>GET [project_url]/api/:date_string?</code>
+      </li>
+      <li>A date string is valid if can be successfully parsed by
+        <code>new Date(date_string)</code>.
+        <br> Note that the unix timestamp needs to be an
+        <strong>integer</strong> (not a string) specifying
+        <strong>milliseconds</strong>.
+        <br> In our test we will use date strings compliant with ISO-8601 (e.g.
+        <code>"2016-11-20"</code>) because this will ensure an UTC timestamp.</li>
+      <li>If the date string is
+        <strong>empty</strong> it should be equivalent to trigger
+        <code>new Date()</code>, i.e. the service uses the current timestamp.</li>
+      <li>If the date string is
+        <strong>valid</strong> the api returns a JSON having the structure
+        <br>
+        <code>{"unix": &lt;date.getTime()&gt;, "utc" : &lt;date.toUTCString()&gt; }</code>
+        <br> e.g.
+        <code>{"unix": 1479663089000 ,"utc": "Sun, 20 Nov 2016 17:31:29 GMT"}</code>
+      </li>
+      <li>If the date string is
+        <strong>invalid</strong> the api returns a JSON having the structure
+        <br>
+        <code>{"unix": null, "utc" : "Invalid Date" }</code>. It is what you get from the date manipulation functions used above.
+      </li>
+    </ol>
+
+    <h3>Example Usage:</h3>
+    <ul>
+      <li>
+        <code>GET <a href="/api/2015-12-25" target="_new">timestamp-miservice.herokuapp.com/api/2015-12-25</a></code>
+      </li>
+      <li>
+        <code>GET <a href="/api/1451001600000" target="_new">timestamp-miservice.herokuapp.com/api/1451001600000</a></code>
+      </li>
+    </ul>
+
+    <h3>Example Output:</h3>
+    <p>
+      <code>{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}</code>
+    </p>
+  </div>
+  <div class="footer">
+    <p>
+      <a href="http://www.freecodecamp.com/">freeCodeCamp</a> |
+      <a href="https://timestamp-miservice.herokuapp.com/">Timestamp Microservice</a> is maintained by<a href="https://github.com/abroroo"> abroroo</a>
     
       
- 
-<h1>Timestamp Microservice <span class="material-symbols-outlined">
-  event_note
-  </span></h1>
-<hr />
-<div class="container">
-  <h3>User Story</h3>
-  <p> 1. I can pass a string as a parameter, and it will check to see whether that string
-    contains either a Unix timestamp or a natural language date (e.g., January 1, 2016) <br />
-    2. If it does, it returns both the Unix timestamp and the natural language form of that date. <br />
-    3. If it does not contain a date or Unix timestamp, it returns null for those properties.</p>
-  <h3>Example Usage</h3>
-  <p> Enter the date in the url bar in the UTC (yyyy-mm-dd) or UNIX format <br /></p>
-  <ul>
-    <li><a href="api/2022-12-25">/api/2022-12-25</a></li>
-    <li><a href="api/1671926400000">/api/1671926400000</a></li>
-  </ul>
-
-  <h3>Example Output</h3>
-  <p> It will give an output like: <br />
-    <code>{
-      "unix":1451001600000,           
-      "utc":"Fri, 25 Dec 2015 00:00:00 GMT"
-    }</code>
-  </p>
-</div>
-<div class="footer">
-  <p>
-    By <a href="https://github.com/abroroo">abroro</a>
-  </p>
-</div> 
-
-
-  </body>
+    </p>
+  </div>
+</body>
 </html>
 
 
 
+<!-- 
+
+<head>
+  <title>Timestamp Microservice | freeCodeCamp.org</title>
+  <link rel="shortcut icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
 
 
+  
+
+<h1>Timestamp Microservice <span class="material-symbols-outlined">
+event_note
+</span></h1>
+<hr />
+<div class="container">
+<h3>User Story</h3>
+<p> 1. I can pass a string as a parameter, and it will check to see whether that string
+contains either a Unix timestamp or a natural language date (e.g., January 1, 2016) <br />
+2. If it does, it returns both the Unix timestamp and the natural language form of that date. <br />
+3. If it does not contain a date or Unix timestamp, it returns null for those properties.</p>
+<h3>Example Usage</h3>
+<p> Enter the date in the url bar in the UTC (yyyy-mm-dd) or UNIX format <br /></p>
+<ul>
+<li><a href="api/2022-12-25">/api/2022-12-25</a></li>
+<li><a href="api/1671926400000">/api/1671926400000</a></li>
+</ul>
+
+<h3>Example Output</h3>
+<p> It will give an output like: <br />
+<code>{
+  "unix":1451001600000,           
+  "utc":"Fri, 25 Dec 2015 00:00:00 GMT"
+}</code>
+</p>
+</div>
+<div class="footer">
+<p>
+By <a href="https://github.com/abroroo">abroro</a>
+</p>
+</div> 
+
+
+</body> -->
