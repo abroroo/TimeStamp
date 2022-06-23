@@ -38,7 +38,7 @@ app.get(`/api/:input`, (req, res) => {
       unix = new Date(input).getTime();
       utc = new Date(input).toUTCString();
     
-    } else if (input.startsWith('-') || !isNaN(input)){
+    } else if (input.startsWith('-') && input.includes([0-9]) || !isNaN(input)){
       unix = parseInt(input);
       utc = new Date(unix).toUTCString();
 
@@ -46,12 +46,13 @@ app.get(`/api/:input`, (req, res) => {
       res.send({
         error : "Invalid Date"
       })
-    } 
-   
+    }
+    
     res.send({
       unix: unix,
       utc: utc
     });
+     
   }
 );
 
