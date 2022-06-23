@@ -35,11 +35,11 @@ app.get(`/api/:input`, (req, res) => {
 
     if (input.includes('-') && !input.startsWith('-')){
       unix = new Date(input).getTime();
-      utc = new Date(input).toString();
+      utc = new Date(input).toUTCString();
     
     } else {
       unix = parseInt(input);
-      utc = new Date(unix).toString();
+      utc = new Date(unix).toUTCString();
     }
    
     res.send({
