@@ -49,7 +49,7 @@ app.get(`/api/:input`, (req, res) => {
   }
 );
 
-const port = Process.env.PORT || 3000 ;
+const port = process.env.PORT || 3000 ;
 
 // listen for requests :)
 var listener = app.listen(port, function () {
