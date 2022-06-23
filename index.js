@@ -46,6 +46,15 @@ app.get(`/api/:input`, (req, res) => {
   }
 );
 
+app.get('/api', (req, res) => {
+  let unix = new Date().getTime();
+  let utc = new Date().toUTCString();
+
+  res.send({
+    unix: unix,
+    utc: utc
+  })
+})
 
 
 const port = process.env.PORT || 3000 ;
@@ -84,12 +93,3 @@ var listener = app.listen(port, function () {
 //   utc: utc
 // });
  
-// app.get('/api', (req, res) => {
-//   let unix = new Date().getTime();
-//   let utc = new Date().toUTCString();
-
-//   res.send({
-//     unix: unix,
-//     utc: utc
-//   })
-// })
