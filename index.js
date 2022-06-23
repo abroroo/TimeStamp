@@ -37,10 +37,13 @@ app.get(`/api/:input`, (req, res) => {
       unix = new Date(input).getTime();
       utc = new Date(input).toUTCString();
     
+    } else if (input.length === 0) {
+        unix = new Date().getTime();
+        utc = new Date().toUTCString();
     } else {
       unix = parseInt(input);
       utc = new Date(unix).toUTCString();
-    }
+    } 
    
     res.send({
       unix: unix,
