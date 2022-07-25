@@ -2,8 +2,8 @@
 // where your node app starts
 
 // init project
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = module.exports = express();
 
 
 // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
@@ -12,7 +12,7 @@ var cors = require('cors');
 app.use(cors({optionsSuccessStatus: 200}));  // some legacy browsers choke on 204
 
 // http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function (req, res) {
@@ -57,12 +57,12 @@ app.get('/api', (req, res) => {
 })
 
 
-const port = process.env.PORT || 3000 ;
+// const port = process.env.PORT || 3000 ;
 
-// listen for requests :)
-var listener = app.listen(port, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
-});
+// // listen for requests :)
+// var listener = app.listen(port, function () {
+//   console.log('Your app is listening on port ' + listener.address().port);
+// });
 
 
 
